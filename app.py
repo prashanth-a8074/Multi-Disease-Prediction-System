@@ -16,13 +16,13 @@ import sys
 import importlib
 
 # Force reload helper modules to bypass Streamlit cache locks
-for module_name in ['src.predictor', 'src.ai_assistant', 'src.recommendation']:
+for module_name in ['predictor', 'ai_assistant', 'recommendation']:
     if module_name in sys.modules:
         importlib.reload(sys.modules[module_name])
 
-from src.predictor import predict_disease
-from src.ai_assistant import generate_ai_response
-from src.recommendation import HOSPITAL_DATABASE
+from predictor import predict_disease
+from ai_assistant import generate_ai_response
+from recommendation import HOSPITAL_DATABASE
 
 # =============================================================================
 # 1. PAGE & THEME CONFIGURATION
