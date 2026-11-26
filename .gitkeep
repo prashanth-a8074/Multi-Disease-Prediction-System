@@ -1,0 +1,2 @@
+# Placeholder file to initialize the models directory.
+# Trained models (*_model.pkl, *_scaler.pkl, and metrics.json) will be saved here.

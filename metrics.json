@@ -1,0 +1,27 @@
+{
+    "diabetes": {
+        "accuracy": 0.7337662337662337,
+        "test_samples": 154,
+        "report": "              precision    recall  f1-score   support\n\n           0       0.61      0.47      0.53        49\n           1       0.78      0.86      0.81       105\n\n    accuracy                           0.73       154\n   macro avg       0.69      0.66      0.67       154\nweighted avg       0.72      0.73      0.72       154\n"
+    },
+    "heart": {
+        "accuracy": 0.7868852459016393,
+        "test_samples": 61,
+        "report": "              precision    recall  f1-score   support\n\n           0       0.80      0.82      0.81        34\n           1       0.77      0.74      0.75        27\n\n    accuracy                           0.79        61\n   macro avg       0.78      0.78      0.78        61\nweighted avg       0.79      0.79      0.79        61\n"
+    },
+    "liver": {
+        "accuracy": 0.905982905982906,
+        "test_samples": 117,
+        "report": "              precision    recall  f1-score   support\n\n           0       0.95      0.92      0.93        85\n           1       0.80      0.88      0.84        32\n\n    accuracy                           0.91       117\n   macro avg       0.88      0.90      0.88       117\nweighted avg       0.91      0.91      0.91       117\n"
+    },
+    "breast_cancer": {
+        "accuracy": 0.9736842105263158,
+        "test_samples": 114,
+        "report": "              precision    recall  f1-score   support\n\n           0       0.50      0.33      0.40         3\n           1       0.98      0.99      0.99       111\n\n    accuracy                           0.97       114\n   macro avg       0.74      0.66      0.69       114\nweighted avg       0.97      0.97      0.97       114\n"
+    },
+    "parkinsons": {
+        "accuracy": 0.8974358974358975,
+        "test_samples": 39,
+        "report": "              precision    recall  f1-score   support\n\n           0       0.88      0.95      0.91        22\n           1       0.93      0.82      0.88        17\n\n    accuracy                           0.90        39\n   macro avg       0.90      0.89      0.89        39\nweighted avg       0.90      0.90      0.90        39\n"
+    }
+}
