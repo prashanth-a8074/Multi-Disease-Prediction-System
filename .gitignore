@@ -1,0 +1,10 @@
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+prediction_history.db
+multi_disease_db.sqlite
+.streamlit/secrets.toml
+reports/
