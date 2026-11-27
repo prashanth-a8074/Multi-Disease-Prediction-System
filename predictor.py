@@ -10,11 +10,13 @@ def load_prediction_artifacts(disease):
     """Loads the model, scaler, feature names, and encoders for a disease."""
     if disease in _MODEL_CACHE:
         return _MODEL_CACHE[disease]
-    
-    model_path = f'models/model_{disease}.pkl'
-    scaler_path = f'models/scaler_{disease}.pkl'
-    features_path = f'models/features_{disease}.pkl'
-    encoders_path = f'models/encoders_{disease}.pkl'
+    model_path = f'model_{disease}.pkl'
+
+scaler_path = f'scaler_{disease}.pkl'
+
+features_path = f'features_{disease}.pkl'
+
+encoders_path = f'encoders_{disease}.pkl'
     
     if not (os.path.exists(model_path) and os.path.exists(scaler_path) and os.path.exists(features_path)):
         raise FileNotFoundError(f"Model artifacts not found for {disease}. Run train_models.py first.")
