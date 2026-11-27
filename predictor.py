@@ -6,44 +6,6 @@ import numpy as np
 # Cache loaders to avoid reading disk on every single prediction
 _MODEL_CACHE = {}
 
-def load_prediction_artifacts(disease):
-    """Loads the model, scaler, feature names, and encoders for a disease."""
-    if disease in _MODEL_CACHE:
-        return _MODEL_CACHE[disease]
-    model_path = f'model_{disease}.pkl'
-
-scaler_path = f'scaler_{disease}.pkl'
-
-features_path = f'features_{disease}.pkl'
-
-encoders_path = f'encoders_{disease}.pkl'
-    
-    if not (os.path.exists(model_path) and os.path.exists(scaler_path) and os.path.exists(features_path)):
-        raise FileNotFoundError(f"Model artifacts not found for {disease}. Run train_models.py first.")
-        
-    with open(model_path, 'rb') as f:
-        model = pickle.load(f)
-        
-    with open(scaler_path, 'rb') as f:
-        scaler = pickle.load(f)
-        
-    with open(features_path, 'rb') as f:
-        features = pickle.load(f)
-        
-    encoders = None
-    if os.path.exists(encoders_path):
-        with open(encoders_path, 'rb') as f:
-            encoders = pickle.load(f)
-            
-    artifacts = {
-        'model': model,
-        'scaler': scaler,
-        'features': features,
-        'encoders': encoders
-    }
-    
-    _MODEL_CACHE[disease] = artifacts
-    return artifacts
 
 def predict_disease(disease, raw_inputs):
     """
@@ -63,6 +25,47 @@ def predict_disease(disease, raw_inputs):
     features = artifacts['features']
     encoders = artifacts['encoders']
     
+def load_prediction_artifacts(disease):
+    """Loads the model, scaler, feature names, and encoders for a disease."""
+    if disease in _MODEL_CACHE:
+        return _MODEL_CACHE[disease]
+
+    model_path = f'model_{disease}.pkl'
+    scaler_path = f'scaler_{disease}.pkl'
+    features_path = f'features_{disease}.pkl'
+    encoders_path = f'encoders_{disease}.pkl'
+
+    if not (os.path.exists(model_path) and
+            os.path.exists(scaler_path) and
+            os.path.exists(features_path)):
+        raise FileNotFoundError(
+            f"Model artifacts not found for {disease}. Run train_models.py first."
+        )
+
+    with open(model_path, 'rb') as f:
+        model = pickle.load(f)
+
+    with open(scaler_path, 'rb') as f:
+        scaler = pickle.load(f)
+
+    with open(features_path, 'rb') as f:
+        features = pickle.load(f)
+
+    encoders = None
+    if os.path.exists(encoders_path):
+        with open(encoders_path, 'rb') as f:
+            encoders = pickle.load(f)
+
+    artifacts = {
+        'model': model,
+        'scaler': scaler,
+        'features': features,
+        'encoders': encoders
+    }
+
+    _MODEL_CACHE[disease] = artifacts
+    return artifacts
+
     # Map raw_inputs to the expected model features
     mapped_inputs = {}
     
